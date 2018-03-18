@@ -19,6 +19,7 @@
   "env": {
     "test": {
       "plugins": [
+        "rewire",
         "transform-object-rest-spread"
       ]
     }

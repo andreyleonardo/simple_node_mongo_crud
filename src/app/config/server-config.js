@@ -1,30 +1,23 @@
 import Hapi from 'hapi';
 import appConfig from './app-config';
-import { getBooks } from '../controllers/books-controller';
+import getBooks from '../controllers/books-controller';
 import routeBuilder from '../rest/route-builder';
 
 class ServerConfig {
   constructor() {
-    this.server = new Hapi.Server();
+    this.server = new Hapi.Server({
+      host: appConfig.app.host,
+      port: appConfig.app.port
+    });
     this.server.app = appConfig.app;
   }
 
   setupServer() {
     return this
-      .createServerConnection()
       .setRoutePrefixURL()
       .registerPlugins()
       .createRoutes()
       .server;
-  }
-
-  createServerConnection() {
-    this.server.connection({
-      host: this.server.app.host,
-      port: this.server.app.port
-    });
-
-    return this;
   }
 
   setRoutePrefixURL() {
@@ -53,9 +46,6 @@ class ServerConfig {
       throw new Error(err);
 
     }
-
-    console.log('Server running at:', this.info.uri);
-
   }
 
 }

@@ -7,6 +7,7 @@
   "scripts": {
     "start:dev": "NODE_ENV=development babel-watch --watch src/app --watch src/resources src/app/start-server.js --presets env",
     "build": "babel src/app -d dist --presets env",
+    "lint": "eslint . --ignore-path .eslintignore",
     "start:server": "node dist/start-server.js",
     "test": "node scripts/test.js --watch"
   },
@@ -15,6 +16,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^23.0.0-alpha.0",
+    "babel-plugin-rewire": "^1.1.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
@@ -23,9 +25,11 @@
     "eslint-plugin-import": "^2.9.0",
     "jest": "^22.4.2",
     "joi": "^13.1.2",
-    "joi-date-extensions": "^1.1.1"
+    "joi-date-extensions": "^1.1.1",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
+    "dotenv": "^5.0.1",
     "hapi": "^17.2.3"
   },
   "jest": {

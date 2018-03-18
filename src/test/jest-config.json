@@ -9,6 +9,7 @@
   "setupFiles": [
   ],
   "testMatch": [
+    "<rootDir>/src/test/component/**/?(*.)(spec|test).js",
     "<rootDir>/src/test/unit/**/?(*.)(spec|test).js"
   ],
   "testEnvironment": "node",

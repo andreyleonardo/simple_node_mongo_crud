@@ -1,1 +1,5 @@
-export default (request, reply) => reply({ books: [] });
+const responseBody = {
+  books: []
+};
+
+export default () => responseBody;
